@@ -1,6 +1,6 @@
 {
   "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-    "eslint --fix",
-    "prettier --end-of-line auto --check --write"
+    "eslint src/ --fix",
+    "prettier src/ --end-of-line auto --check --write"
   ]
 }

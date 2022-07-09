@@ -1,8 +1,7 @@
 import React from "react";
 
 function App() {
-  const lala;
-  return <div>Hello World!</div>;
+  return <div>Hello World!${oi}</div>;
 }
 
 export default App;
