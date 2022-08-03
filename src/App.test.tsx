@@ -1,9 +1,18 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import axios from "axios";
+
 import App from "./App";
 
-test("Renders hello world", () => {
+jest.mock("axios");
+const mockedAxiosGet = axios.get as jest.MockedFunction<typeof axios.get>;
+
+test("Renders hello world", async () => {
+  mockedAxiosGet.mockResolvedValue({ data: "Hello world!" });
+
   render(<App />);
-  const linkElement = screen.getByText("Hello world!");
+
+  const linkElement = await screen.findByText("Hello world!");
+
   expect(linkElement).toBeInTheDocument();
 });
