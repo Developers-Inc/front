@@ -5,14 +5,12 @@ import axios from "axios";
 import App from "./App";
 
 jest.mock("axios");
-const mockAxiosGet = axios.get as jest.MockedFunction<typeof axios.get>;
+const mockedAxiosGet = axios.get as jest.MockedFunction<typeof axios.get>;
 
-test("Renders hello world", async () => {
-  mockAxiosGet.mockResolvedValue({
-    data: "Hello World!!!",
-  });
+test("renders hello world", async () => {
+  mockedAxiosGet.mockResolvedValue({ data: "Hello world!" });
 
   render(<App />);
-
-  expect(await screen.findByText("Hello World!!!")).toBeInTheDocument();
+  const linkElement = await screen.findByText("Hello world!");
+  expect(linkElement).toBeInTheDocument();
 });
