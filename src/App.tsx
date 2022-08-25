@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const App = () => {
-  const [content, setContent] = useState("Olá mundo!");
+  const [content, setContent] = useState("Hello world!");
 
   useEffect(() => {
     axios
