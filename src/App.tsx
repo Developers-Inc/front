@@ -3,10 +3,11 @@ import axios from "axios";
 
 const App = () => {
   const [content, setContent] = useState("Olá mundo");
+  const url = window.location.hostname;
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/test")
+      .get(`http://${url}:8080/api/test`)
       .then((response) => setContent(response.data))
       .catch((error) => setContent(error.message));
   }, []);
